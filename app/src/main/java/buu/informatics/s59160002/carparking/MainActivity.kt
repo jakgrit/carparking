@@ -1,5 +1,6 @@
 package buu.informatics.s59160002.carparking
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.save_button).setOnClickListener { initValue() }
         findViewById<Button>(R.id.cancel_button).setOnClickListener { disableInput() }
 
+        changeColorSelectBtn()
         disableInput()
     }
 
@@ -62,22 +64,25 @@ class MainActivity : AppCompatActivity() {
     //checkSelectedButton
     private fun checkBtn(idx: String){
 
+
+
         clearInput()
 
         when (idx) {
             "1" -> {
                 enableInput()
                 check = "1"
+                changeColorSelectBtn()
             }
             "2" -> {
                 enableInput()
                 check = "2"
-
+                changeColorSelectBtn()
             }
             "3" -> {
                 enableInput()
                 check = "3"
-
+                changeColorSelectBtn()
             }
         }
         showText()
@@ -142,6 +147,45 @@ class MainActivity : AppCompatActivity() {
                 carID.setText(car3.carId)
                 firstName.setText(car3.name)
                 lastName.setText(car3.surName)
+            }
+        }
+    }
+
+    //changeColor
+    private fun changeColorSelectBtn(){
+        val slt1 = findViewById<Button>(R.id.slot1_button)
+        val slt2 = findViewById<Button>(R.id.slot2_button)
+        val slt3 = findViewById<Button>(R.id.slot3_button)
+
+        val saveBtn = findViewById<Button>(R.id.save_button)
+        val cancelBtn = findViewById<Button>(R.id.cancel_button)
+
+        saveBtn.setBackgroundColor(Color.parseColor("#32CD32"))
+        cancelBtn.setBackgroundColor(Color.parseColor("#B22222"))
+
+        when(check){
+            "1" -> {
+                slt1.setBackgroundColor(Color.parseColor("#A52A2A"))
+
+                slt2.setBackgroundColor(Color.parseColor("#32CD32"))
+                slt3.setBackgroundColor(Color.parseColor("#32CD32"))
+            }
+            "2" -> {
+                slt2.setBackgroundColor(Color.parseColor("#A52A2A"))
+
+                slt1.setBackgroundColor(Color.parseColor("#32CD32"))
+                slt3.setBackgroundColor(Color.parseColor("#32CD32"))
+            }
+            "3" -> {
+                slt3.setBackgroundColor(Color.parseColor("#A52A2A"))
+
+                slt1.setBackgroundColor(Color.parseColor("#32CD32"))
+                slt2.setBackgroundColor(Color.parseColor("#32CD32"))
+            }
+            else -> {
+                slt1.setBackgroundColor(Color.parseColor("#32CD32"))
+                slt2.setBackgroundColor(Color.parseColor("#32CD32"))
+                slt3.setBackgroundColor(Color.parseColor("#32CD32"))
             }
         }
     }
