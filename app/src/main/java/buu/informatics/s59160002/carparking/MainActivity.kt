@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.IntegerRes
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
 
     private var check: String = ""
 
+    private var status1 = false
+    private var status2 = false
+    private var status3 = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,11 +35,55 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.save_button).setOnClickListener { initValue() }
         findViewById<Button>(R.id.cancel_button).setOnClickListener { disableInput() }
+        findViewById<Button>(R.id.delete_button).setOnClickListener { clearDataObj() }
 
         changeColorSelectBtn()
         disableInput()
 
 
+        checkNulObj()
+    }
+
+    //clearData in Obj
+
+    private fun clearDataObj(){
+        val slt1 = findViewById<Button>(R.id.slot1_button)
+        val slt2 = findViewById<Button>(R.id.slot2_button)
+        val slt3 = findViewById<Button>(R.id.slot3_button)
+        when (check) {
+            "1" -> {
+                car1.name = ""
+                car1.carId = ""
+                car1.surName = ""
+
+                obj1 = false
+
+                slt1.text = "ว่าง"
+                slt1.setBackgroundColor(Color.parseColor("#00FF00"))
+            }
+            "2" -> {
+                car2.name = ""
+                car2.carId = ""
+                car2.surName = ""
+
+                obj2 = false
+
+                slt2.text = "ว่าง"
+                slt2.setBackgroundColor(Color.parseColor("#00FF00"))
+            }
+            else -> {
+                car3.name = ""
+                car3.carId = ""
+                car3.surName = ""
+
+                obj3 = false
+
+                slt3.text = "ว่าง"
+                slt3.setBackgroundColor(Color.parseColor("#00FF00"))
+            }
+        }
+
+        showText()
         checkNulObj()
     }
 
@@ -45,12 +94,14 @@ class MainActivity : AppCompatActivity() {
         val lastName = findViewById<EditText>(R.id.surname_editText)
         val saveBtn = findViewById<Button>(R.id.save_button)
         val cancelBtn = findViewById<Button>(R.id.cancel_button)
+        val deleteBtn = findViewById<Button>(R.id.delete_button)
 
         carID.visibility = View.GONE
         firstName.visibility = View.GONE
         lastName.visibility = View.GONE
         saveBtn.visibility = View.GONE
         cancelBtn.visibility = View.GONE
+        deleteBtn.visibility = View.GONE
 
 
         checkNulObj()
@@ -64,12 +115,14 @@ class MainActivity : AppCompatActivity() {
         val lastName = findViewById<EditText>(R.id.surname_editText)
         val saveBtn = findViewById<Button>(R.id.save_button)
         val cancelBtn = findViewById<Button>(R.id.cancel_button)
+        val deleteBtn = findViewById<Button>(R.id.delete_button)
 
         carID.visibility = View.VISIBLE
         firstName.visibility = View.VISIBLE
         lastName.visibility = View.VISIBLE
         saveBtn.visibility = View.VISIBLE
         cancelBtn.visibility = View.VISIBLE
+        deleteBtn.visibility = View.VISIBLE
 
 
         checkNulObj()
@@ -238,5 +291,7 @@ class MainActivity : AppCompatActivity() {
             slt3.text = "ไม่ว่าง"
             slt3.setBackgroundColor(Color.parseColor("#DC143C"))
         }
+
     }
+
 }
