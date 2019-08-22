@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,8 +65,6 @@ class MainActivity : AppCompatActivity() {
     //checkSelectedButton
     private fun checkBtn(idx: String){
 
-
-
         clearInput()
 
         when (idx) {
@@ -111,6 +110,7 @@ class MainActivity : AppCompatActivity() {
                 car3.surName = lastName.text.toString()
             }
         }
+        Toast.makeText(this, "เพิ่มข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show()
         clearInput()
         showText()
     }
