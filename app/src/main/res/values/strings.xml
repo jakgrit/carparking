@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Carparking</string>
+    <string name="slot1_text">Slot1</string>
+    <string name="slot2_text">Slot2</string>
+    <string name="slot3_text">Slot3</string>
+    <string name="carid">CarID</string>
+    <string name="firstname_editText">FirstName</string>
+    <string name="lastname_editText">LastName</string>
+    <string name="save_button">Save</string>
+    <string name="cancel_button">Cancel</string>
+</resources>
