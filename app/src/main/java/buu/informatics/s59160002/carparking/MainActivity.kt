@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
     private var car2: Car = Car()
     private var car3: Car = Car()
 
+    private var obj1 = false
+    private var obj2 = false
+    private var obj3 = false
+
     private var check: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         changeColorSelectBtn()
         disableInput()
+
+
+        checkNulObj()
     }
 
     //hideInput & button
@@ -45,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         saveBtn.visibility = View.GONE
         cancelBtn.visibility = View.GONE
 
+
+        checkNulObj()
+
     }
 
     //showInput & button
@@ -60,6 +70,9 @@ class MainActivity : AppCompatActivity() {
         lastName.visibility = View.VISIBLE
         saveBtn.visibility = View.VISIBLE
         cancelBtn.visibility = View.VISIBLE
+
+
+        checkNulObj()
     }
 
     //checkSelectedButton
@@ -85,6 +98,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
         showText()
+
+
+        checkNulObj()
     }
 
     //initialValue to DataClass
@@ -98,21 +114,29 @@ class MainActivity : AppCompatActivity() {
                 car1.carId = carID.text.toString()
                 car1.name = firstName.text.toString()
                 car1.surName = lastName.text.toString()
+
+                obj1 = true
             }
             "2" -> {
                 car2.carId = carID.text.toString()
                 car2.name = firstName.text.toString()
                 car2.surName = lastName.text.toString()
+
+                obj2 = true
             }
             "3" -> {
                 car3.carId = carID.text.toString()
                 car3.name = firstName.text.toString()
                 car3.surName = lastName.text.toString()
+
+                obj3 = true
             }
         }
         Toast.makeText(this, "เพิ่มข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show()
         clearInput()
         showText()
+
+        checkNulObj()
     }
 
     //clearAllInput
@@ -124,6 +148,8 @@ class MainActivity : AppCompatActivity() {
         carID.setText("")
         firstName.setText("")
         lastName.setText("")
+
+        checkNulObj()
     }
 
     //showData to Input
@@ -149,6 +175,8 @@ class MainActivity : AppCompatActivity() {
                 lastName.setText(car3.surName)
             }
         }
+
+        checkNulObj()
     }
 
     //changeColor
@@ -187,6 +215,28 @@ class MainActivity : AppCompatActivity() {
                 slt2.setBackgroundColor(Color.parseColor("#32CD32"))
                 slt3.setBackgroundColor(Color.parseColor("#32CD32"))
             }
+        }
+
+
+        checkNulObj()
+    }
+
+    private fun checkNulObj(){
+        val slt1 = findViewById<Button>(R.id.slot1_button)
+        val slt2 = findViewById<Button>(R.id.slot2_button)
+        val slt3 = findViewById<Button>(R.id.slot3_button)
+
+        if(obj1){
+            slt1.text = "ไม่ว่าง"
+            slt1.setBackgroundColor(Color.parseColor("#DC143C"))
+        }
+        if (obj2){
+            slt2.text = "ไม่ว่าง"
+            slt2.setBackgroundColor(Color.parseColor("#DC143C"))
+        }
+        if (obj3){
+            slt3.text = "ไม่ว่าง"
+            slt3.setBackgroundColor(Color.parseColor("#DC143C"))
         }
     }
 }
