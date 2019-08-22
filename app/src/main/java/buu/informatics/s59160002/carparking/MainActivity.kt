@@ -164,30 +164,34 @@ class MainActivity : AppCompatActivity() {
         val firstName = findViewById<EditText>(R.id.name_editText)
         val lastName = findViewById<EditText>(R.id.surname_editText)
 
-        when (check) {
-            "1" -> {
-                car1.carId = carID.text.toString()
-                car1.name = firstName.text.toString()
-                car1.surName = lastName.text.toString()
+        if(carID.text.toString() != "" && firstName.text.toString() != "" && lastName.text.toString() != ""){
+            when (check) {
+                "1" -> {
+                    car1.carId = carID.text.toString()
+                    car1.name = firstName.text.toString()
+                    car1.surName = lastName.text.toString()
 
-                obj1 = true
-            }
-            "2" -> {
-                car2.carId = carID.text.toString()
-                car2.name = firstName.text.toString()
-                car2.surName = lastName.text.toString()
+                    obj1 = true
+                }
+                "2" -> {
+                    car2.carId = carID.text.toString()
+                    car2.name = firstName.text.toString()
+                    car2.surName = lastName.text.toString()
 
-                obj2 = true
-            }
-            "3" -> {
-                car3.carId = carID.text.toString()
-                car3.name = firstName.text.toString()
-                car3.surName = lastName.text.toString()
+                    obj2 = true
+                }
+                "3" -> {
+                    car3.carId = carID.text.toString()
+                    car3.name = firstName.text.toString()
+                    car3.surName = lastName.text.toString()
 
-                obj3 = true
+                    obj3 = true
+                }
             }
+            Toast.makeText(this, "เพิ่มข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this,"กรุณากรอกข้อมูลให้ครบทุกช่อง", Toast.LENGTH_SHORT).show()
         }
-        Toast.makeText(this, "เพิ่มข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show()
         clearInput()
         showText()
 
