@@ -21,10 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private var check: String = ""
 
-    private var status1 = false
-    private var status2 = false
-    private var status3 = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
