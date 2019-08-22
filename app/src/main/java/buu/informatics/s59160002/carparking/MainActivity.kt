@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.cancel_button).setOnClickListener { disableInput() }
         findViewById<Button>(R.id.delete_button).setOnClickListener { clearDataObj() }
 
+        findViewById<Button>(R.id.delete_button).setBackgroundColor(Color.parseColor("#DC143C"))
+
         changeColorSelectBtn()
         disableInput()
 
