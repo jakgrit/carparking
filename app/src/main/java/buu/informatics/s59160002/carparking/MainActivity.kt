@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.annotation.IntegerRes
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +33,11 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.delete_button).setOnClickListener { clearDataObj() }
 
         findViewById<Button>(R.id.delete_button).setBackgroundColor(Color.parseColor("#DC143C"))
+
+        findViewById<Button>(R.id.slot1_button).text = "ว่าง"
+        findViewById<Button>(R.id.slot2_button).text = "ว่าง"
+        findViewById<Button>(R.id.slot3_button).text = "ว่าง"
+
 
         changeColorSelectBtn()
         disableInput()
